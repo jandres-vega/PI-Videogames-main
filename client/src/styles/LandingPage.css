@@ -1,0 +1,70 @@
+.fondo {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    background-image:url("../assets/imagen/home_dog.jpg");
+    background-size: cover;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.outer {
+    background: #111;
+}
+.circle{
+    height: 110px;
+    width: 200px;
+    border-radius: 15%;
+}
+.outer button, .outer span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+.outer button {
+    background: #111;
+    color: #f2f2f2;
+    outline: none;
+    border: none;
+    z-index: 9;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.circle button {
+    height: 100px;
+    width: 180px;
+    border-radius: 15px;
+}
+.outer span {
+    height: 100%;
+    width: 100%;
+    background: inherit;
+}
+
+.circle span {
+    border-radius: 20px;
+}
+.outer:hover span:nth-child(1) {
+    filter: blur(7px)
+}
+.outer:hover span:nth-child(2) {
+    filter: blur(14px);
+}
+.outer:hover {
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
