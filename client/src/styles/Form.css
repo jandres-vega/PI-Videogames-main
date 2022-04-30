@@ -1,0 +1,203 @@
+.fondo {
+    background-image: url(../assets/imagenes/fondoForm.png);
+}
+.container-form {
+    width: 650px;
+    height: 650px;
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+}
+.form {
+    position: relative;
+    bottom: 50px;
+    width:650px;
+    height:500px;
+    border-radius:20px;
+    background-image: linear-gradient(to bottom, black, white);
+    top: 30px;
+    text-align: center;
+}
+
+.div-name {
+    position: absolute;
+    width: 400px;
+    left: 120px;
+    top: 10px;
+    display: inline-block;
+}
+.div-name input{
+    position: relative;
+    width: 250px;
+    right: 120px;
+    height: 25px;
+    border-style: none;
+    border-radius: 10px;
+    left: 35px;
+}
+.div-name label{
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+    right: 120px;
+    left: -40px;
+    color: greenyellow;
+}
+.div-release {
+    position: absolute;
+    width: 400px;
+    left: 120px;
+    top: 70px;
+    display: inline-block;
+}
+.div-release label {
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+    right: 120px;
+    left: -5px;
+    color: greenyellow;
+
+}
+.div-release input {
+    width: 250px;
+    right: 120px;
+    height: 25px;
+    border-style: none;
+    border-radius: 10px;
+}
+.div-imagen {
+    position: absolute;
+    width: 400px;
+    left: 120px;
+    top: 130px;
+    display: inline-block;
+}
+.div-imagen label{
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+    right: 120px;
+    left: -32px;
+    color: greenyellow;
+}
+.div-imagen input {
+    position: relative;
+    width: 250px;
+    right: 120px;
+    height: 25px;
+    border-style: none;
+    border-radius: 10px;
+    left: 28px;
+}
+.div-rating {
+    position: absolute;
+    width: 400px;
+    left: 120px;
+    top: 190px;
+    display: inline-block;
+}
+.div-rating label {
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+    right: 120px;
+    left: -35px;
+    color: greenyellow;
+}
+.div-rating input {
+    position: relative;
+    width: 250px;
+    right: 120px;
+    height: 25px;
+    border-style: none;
+    border-radius: 10px;
+    left: 32px;
+}
+.div-description {
+    position: absolute;
+    width: 400px;
+    left: 120px;
+    top: 250px;
+    display: inline-block;
+}
+.div-description label {
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+    right: 120px;
+    left: -140px;
+    color: greenyellow;
+}
+.div-genre {
+    position: absolute;
+    left: 20px;
+    top: 390px;
+    display: inline-block;
+}
+.div-genre label {
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+}
+.div-genre select {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+}
+.div-platforms {
+    position: absolute;
+    left: 210px;
+    top: 390px;
+    display: inline-block;
+}
+.div-platforms label {
+    position: relative;
+    font-size: 20px;
+    font-family: cursive;
+}
+.div-platforms select {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+}
+.div-save {
+    position: relative;
+    display: inline-block;
+    top: 390px;
+    left: 210px;
+}
+.div-save button {
+    height: 40px;
+    width: 100px;
+    font-family: cursive;
+    font-size: 15px;
+    border: 5px solid #111111;
+    border-radius: 15px;
+    color:green;
+    cursor: pointer;
+}
+.div-save button:hover {
+    background: greenyellow;
+    color: black ;
+}
+.div-back-home {
+    position: relative;
+    display: inline-block;
+    top: 390px;
+    left: 200px;
+}
+.div-back-home button {
+    height: 40px;
+    width: 100px;
+    font-family: cursive;
+    font-size: 15px;
+    border: 5px solid #111111;
+    border-radius: 15px;
+    color:green;
+    cursor: pointer;
+}
+.div-back-home button:hover {
+    background: greenyellow;
+    color: black ;
+}

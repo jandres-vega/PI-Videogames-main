@@ -1,0 +1,70 @@
+.header {
+    height: 190px;
+    width: 100%;
+    border-style: solid;
+    background-image: linear-gradient(to bottom, black, white);
+    overflow:auto;
+}
+.div-h3-filter {
+    position: relative;
+    display: inline-block;
+    left: 42%;
+    top: -105px;
+}
+.logo-tittle {
+    position: relative;
+    left: 30%;
+    display: inline-block;
+    margin: 0;
+}
+.div-button-create {
+    display: inline-block;
+    position: absolute;
+    left: 200px;
+    top: 30px;
+}
+.div-button-create button {
+    height: 40px;
+    width: 180px;
+    font-family: cursive;
+    font-size: 20px;
+    border: 5px solid #111111;
+    border-radius: 15px;
+    color:green;
+    cursor: pointer;
+}
+.div-button-create button:hover {
+    background: greenyellow;
+    color: black ;
+}
+.div-button-back {
+    display: inline-block;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+.div-button-back button {
+    height: 40px;
+    width: 150px;
+    font-family: cursive;
+    font-size: 20px;
+    border: 5px solid #111111;
+    border-radius: 15px;
+    color:green;
+    cursor: pointer;
+}
+.div-button-back button:hover {
+    background: greenyellow;
+    color: black ;
+}
+.div-Filter-genero {
+    position: relative;
+    top: -110px;
+    left: 15px;
+    margin-right: 5px;
+}
+.div-search-header {
+    position: relative;
+    left: 80%;
+    top: -260px;
+}

@@ -1,0 +1,19 @@
+.div-cards {
+    position: relative;
+    background-image: linear-gradient(to bottom, gray, blue);
+    width: 99% ;
+    height: 800px;
+    margin: 15px;
+    text-align: center;
+    display: flex;
+    border-radius: 50px;
+    padding: 0;
+    flex-wrap: wrap;
+}
+.div-paginado {
+    background-color: #14ffe9;
+}
+.div-home {
+    position: relative;
+    top: -150px;
+}

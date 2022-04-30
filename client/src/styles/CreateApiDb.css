@@ -1,0 +1,15 @@
+.div-api-db {
+    position: relative;
+    display: inline-block;
+    left: 350px;
+}
+.div-api-db select {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+.div-api-db label {
+    font-family: cursive;
+    font-size: 20px;
+}

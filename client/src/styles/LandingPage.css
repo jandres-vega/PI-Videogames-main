@@ -1,13 +1,16 @@
+body {
+    margin: 0;
+}
 .fondo {
     position : absolute;
     width : 100%;
     height : 100%;
-    background-image:url("../assets/imagen/home_dog.jpg");
+    background-image:url("../assets/imagenes/fondoInitial.png");
     background-size: cover;
 }
 .center{
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

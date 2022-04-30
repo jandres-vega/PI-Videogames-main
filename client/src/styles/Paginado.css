@@ -1,0 +1,34 @@
+.pag-nav {
+    height: 40px;
+    width: 1000px;
+    left: 300px;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+    bottom: 30px;
+    top: 5px;
+}
+.pag-nav li {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+
+}
+.pag-nav a {
+    position: relative;
+    top: 6px;
+    cursor: pointer;
+}
+
+.container-number {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: rosybrown;
+    border-radius: 50%;
+    display: inline-block;
+}
+.pag-nav li:hover {
+    transform: scale(1.15)
+}
