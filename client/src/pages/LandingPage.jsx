@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const LandingPage = () => {
     return (
-        <div className="fondo">
+        <div className="div-fondo">
             <div className="center">
                 <div className="outer circle">
                     <Link to="/home">

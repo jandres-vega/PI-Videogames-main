@@ -1,5 +1,9 @@
-.fondo {
-    background-image: url(../assets/imagenes/fondoForm.png);
+.div-fondo-form {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    background-size: cover;
+    background-image:url("../assets/imagenes/fondoForm.png");
 }
 .container-form {
     width: 650px;

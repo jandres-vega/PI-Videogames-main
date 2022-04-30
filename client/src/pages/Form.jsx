@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import '../styles/Form.css'
 const Form = () => {
     return (
-        <div className="fondo">
+        <div className="div-fondo-form">
             <div className="container-form">
                 <form className="form">
                     <div className="div-name">
