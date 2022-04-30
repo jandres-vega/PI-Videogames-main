@@ -8,5 +8,13 @@ export function getAllGames() {
             payload: allGames.data,
         })
     }
-
+}
+export function getAllGenres() {
+    return async function (dispatch) {
+        let allGenres = await axios.get('http://localhost:3006/genres');
+        return dispatch({
+            type: 'GET_GENRES',
+            payload: allGenres.data,
+        })
+    }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {getAllGames} from "../redux/actions/actions"
@@ -32,9 +33,12 @@ const ListGame = () => {
             />
             <div className="div-cards">
                 {currenGames?.map((data) => (
-                    <CardGame name={data.name} image={data.background_image} genre={data.genres.map(e =>{
-                        return e
-                    })} key={data.id}/>
+                    <Link to={`/videoGame/${data.id}`} style={{ textDecoration: 'none', color: 'black' }} key={data.id}>
+                        <CardGame name={data.name} image={data.background_image} genre={data.genres.map(e =>{
+                            return e
+                        })} key={data.id}/>
+                    </Link>
+
                 ))}
 
             </div>

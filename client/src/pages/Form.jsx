@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../styles/Form.css'
+import FilterGenre from "../components/FilterGenre";
 const Form = () => {
     return (
         <div className="div-fondo-form">
@@ -27,12 +28,7 @@ const Form = () => {
                         <textarea name="textarea" rows="5" cols="50"/>
                     </div>
                     <div className="div-genre">
-                        <label>Genres: </label>
-                        <select>
-                            <option>Opcion 1</option>
-                            <option>Opcion 2</option>
-                            <option>Opcion 3</option>
-                        </select>
+                        <FilterGenre/>
                     </div>
                     <div className="div-platforms">
                         <label>Platforms: </label>

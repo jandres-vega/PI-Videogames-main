@@ -6,16 +6,16 @@ const router = Router()
 
 router.get('/', async(req, res) => {
     const info = await getGenreApi()
-    // try {
+    try {
         let getGener = await Genre.findAll();
         getGener = getGener.map((data) => {
             return data;
         });
-        //res.send(getGener)
-    res.send(info)
-    // }catch (e) {
-    //     console.error(e)
-    // }
+        res.send(getGener)
+
+    }catch (e) {
+        console.error(e)
+    }
 
 
 })

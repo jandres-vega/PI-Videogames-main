@@ -1,5 +1,6 @@
 const initialState = {
-    allGame: []
+    allGame: [],
+    allGenres: []
 }
 function rootReducer(state = initialState, action) {
 
@@ -8,6 +9,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allGame: action.payload
+            }
+        case 'GET_GENRES':
+            return {
+                ...state,
+                allGenres: action.payload
+
             }
         default:
             return state;

@@ -1,13 +1,23 @@
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getAllGenres} from '../redux/actions/actions'
 import '../styles/FilterGenre.css'
 const FilterGenre = () => {
+    const dispatch = useDispatch()
+    const allGenres = useSelector((state) => state.allGenres)
+
+    useEffect(() => {
+        dispatch(getAllGenres())
+    },[])
+
     return (
         <div className="div-genres">
-            <label>Generos: </label>
+            <label>Genres: </label>
             <select>
-                <option>Opcion1</option>
-                <option>Opcion2</option>
-                <option>Opcion3</option>
+                {allGenres?.map(data => (
+                    <option key={data.id} value={data.name}> {data.name}</option>
+                ))}
             </select>
         </div>
     );

@@ -1,13 +1,22 @@
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getAllGames} from '../redux/actions/actions'
 import '../styles/FilterByGame.css'
 const FilterByGame = () => {
+
+    const dispatch = useDispatch()
+    const nameGames = useSelector((state) => state.allGame)
+    useEffect(() => {
+        dispatch(getAllGames())
+    },[])
     return (
         <div className="div-games">
             <label>Games: </label>
             <select>
-                <option>Opcion1</option>
-                <option>Opcion2</option>
-                <option>Opcion3</option>
+                {nameGames?.map(data => (
+                    <option key={data.id} value={data.name}> {data.name}</option>
+                ))}
             </select>
         </div>
     );
