@@ -42,3 +42,9 @@ export function orderByName(value) {
         value,
     }
 }
+export function filterByCreatedAt(value) {
+    return {
+        type: 'FILTER_CREATED_AT',
+        value
+    }
+}

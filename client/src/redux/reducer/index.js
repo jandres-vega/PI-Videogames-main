@@ -65,6 +65,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allGame: order,
             }
+        case 'FILTER_CREATED_AT':
+            const createdApiDb = action.value === 'database'?
+                state.allCopyGames.filter((data) => data.createDateBase):
+                state.allCopyGames.filter((data) => !data.createDateBase)
+            return {
+                ...state,
+                allGame: createdApiDb
+            }
 
         default:
             return state;
