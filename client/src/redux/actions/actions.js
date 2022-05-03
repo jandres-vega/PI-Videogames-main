@@ -18,3 +18,27 @@ export function getAllGenres() {
         })
     }
 }
+export function filterByGenres(value) {
+    return {
+        type: 'FILTER_GENRES',
+        value
+    }
+}
+export function filterByGame(value) {
+    return {
+        type: 'FILTER_GAMES',
+        value
+    }
+}
+export function filterByRating(value) {
+    return {
+        type: 'FILTER_RATING',
+        value
+    }
+}
+export function orderByName(value) {
+    return {
+        type: 'ORDER',
+        value,
+    }
+}

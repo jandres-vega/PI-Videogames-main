@@ -5,7 +5,6 @@ import imagenTitulo from '../assets/imagenes/videoGame.png'
 import FilterGenre from "../components/FilterGenre";
 import FilterByGame from "../components/FilterByGame";
 import OrderRating from "../components/OrderRating";
-import OrderByAscDes from "../components/OrderByAscDes";
 import CreateApiDb from "../components/CreateApiDb";
 import SearchGames from "../components/SearchGames";
 const Header = () => {
@@ -37,7 +36,6 @@ const Header = () => {
                 <FilterGenre/>
                 <FilterByGame/>
                 <OrderRating/>
-                <OrderByAscDes/>
                 <CreateApiDb/>
             </div>
             <div className="div-search-header">

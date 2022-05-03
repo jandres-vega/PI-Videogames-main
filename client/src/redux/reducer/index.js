@@ -1,6 +1,7 @@
 const initialState = {
     allGame: [],
-    allGenres: []
+    allGenres: [],
+    allCopyGames: []
 }
 function rootReducer(state = initialState, action) {
 
@@ -8,14 +9,63 @@ function rootReducer(state = initialState, action) {
         case 'GET_GAMES':
             return {
                 ...state,
-                allGame: action.payload
+                allGame: action.payload,
+                allCopyGames: action.payload
             }
         case 'GET_GENRES':
             return {
                 ...state,
                 allGenres: action.payload
-
             }
+        case 'FILTER_GENRES':
+            let arrayGenres = state.allCopyGames.filter(data => {
+                if (!data.genres) return undefined
+                return (
+                    data.genres && data.genres.includes(action.value)
+                )
+            })
+            return {
+                ...state,
+                allGame: arrayGenres
+            }
+        case 'FILTER_GAMES':
+            let arrayGames = state.allCopyGames.filter(data => {
+                if (!data.name) return undefined
+                return (
+                    data.name === action.value
+                )
+            })
+            return {
+                ...state,
+                allGame: arrayGames
+            }
+        case 'FILTER_RATING':
+            let arrayRatings = state.allCopyGames.filter(data => {
+                return (
+                    data.rating === Number(action.value)
+                )
+            })
+            return {
+                ...state,
+                allGame: arrayRatings
+            }
+        case 'ORDER':
+            const order = action.value === 'asen'
+                ?state.allGame.sort(function (a, b) {
+                    if (a.name > b.name) return 1
+                    if (b.name > a.name) return -1
+                    return 0
+                }):
+                state.allGame.sort(function (a, b) {
+                    if (a.name < b.name) return 1
+                    if (b.name < a.name) return -1
+                    return 0
+                })
+            return {
+                ...state,
+                allGame: order,
+            }
+
         default:
             return state;
     }
