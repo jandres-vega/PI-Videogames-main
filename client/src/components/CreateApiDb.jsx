@@ -1,24 +1,23 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {filterByCreatedAt} from '../redux/actions/actions'
-import '../styles/CreateApiDb.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { filterByCreatedAt } from '../redux/actions/actions';
+import '../styles/CreateApiDb.css';
 const CreateApiDb = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  function handleFilterByCreatedAt(e) {
+    dispatch(filterByCreatedAt(e.target.value));
+  }
 
-    function handleFilterByCreatedAt(e) {
-        dispatch(filterByCreatedAt(e.target.value))
-    }
-
-    return (
-        <div className="div-api-db">
-            <label>created from: </label>
-            <select onChange={(e) => handleFilterByCreatedAt(e)}>
-                <option value="api">api</option>
-                <option value="database">database</option>
-            </select>
-        </div>
-    );
+  return (
+    <div className="div-api-db">
+      <label>created from: </label>
+      <select onChange={(e) => handleFilterByCreatedAt(e)}>
+        <option value="api">api</option>
+        <option value="database">database</option>
+      </select>
+    </div>
+  );
 };
 
 export default CreateApiDb;
