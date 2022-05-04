@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const { getGenreApi } = require('./src/services/informatioApiDb')
 const { Genre } = require('./src/db')
 // Syncing all the models at once.
-conn.sync({ force: false }).then(async () => {
+conn.sync({ force: true }).then(async () => {
 
   const genreApi = await getGenreApi()
   genreApi.forEach(data => {

@@ -12,7 +12,7 @@ const App = () => {
             <Route exact path='/' element={<LandingPage />} />
             <Route exact path='/home' element={<Home/> } />
             <Route exact path='/form' element={<Form />} />}
-            <Route exact path='/videoGame/:id' element={<DetailGame/>} />
+            <Route exact path='/videogames/:id' element={<DetailGame/>} />
         </Routes>
     </Router>
   );

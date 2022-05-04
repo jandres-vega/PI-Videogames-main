@@ -48,3 +48,12 @@ export function filterByCreatedAt(value) {
         value
     }
 }
+export function getGameById(id) {
+    return async function(dispatch) {
+        let gameId = await axios.get(`http://localhost:3006/videogames/${id}`);
+        return dispatch({
+            type: 'GET_GAME_ID',
+            payload: gameId.data
+        })
+    }
+}

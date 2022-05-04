@@ -43,7 +43,7 @@ const ListGame = () => {
             </div>
             <div className="div-cards">
                 {currenGames?.map((data) => (
-                    <Link to={`/videoGame/${data.id}`} style={{ textDecoration: 'none', color: 'black' }} key={data.id}>
+                    <Link to={`/videogames/${data.id}`} style={{ textDecoration: 'none', color: 'black' }} key={data.id}>
                         <CardGame name={data.name} image={data.background_image} genre={data.genres.map(e =>{
                             return e
                         })} key={data.id}/>

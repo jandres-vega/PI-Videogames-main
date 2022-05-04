@@ -17,7 +17,7 @@ const OrderRating = () => {
 
     useEffect(() => {
         dispatch(getAllGames())
-    },[])
+    },[dispatch])
     return (
         <div className="div-order-rating">
             <label>Order By Rating: </label>

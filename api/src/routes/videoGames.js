@@ -2,6 +2,7 @@ const {Router} = require('express')
 const router = Router()
 const {getInfoApi, getInfoDb} = require('../services/informatioApiDb')
 const { Videogame, Genre} = require('../db')
+const axios = require("axios");
 
 router.get('/', async(req, res) => {
     const name = req.query.name
@@ -28,11 +29,21 @@ router.get('/:id', async(req, res) => {
     if (id.length < 10) {
         try {
             const numId = parseInt(id);
-            const apiInfo = await getInfoApi();
-            const gamerFilter = apiInfo.filter(data => data.id === numId)
-            gamerFilter.length=== 0 ?
-                res.status(404).send("no se econtro el juego"):
-                res.status(200).send(gamerFilter)
+            const apiInfo = await axios.get(`https://rawg.io/api/games/${numId}?key=6c10878e4c02424886c485451fb037de`)
+            const genres = apiInfo.data.genres.map( data => data.name)
+            const platforms =  apiInfo.data.platforms.map( data => data.platform.name)
+            const detailById = {
+                name: apiInfo.data.name,
+                description: apiInfo.data.description.replace(/<[^>]+>/g, ''),
+                release_date: apiInfo.data.released,
+                rating: apiInfo.data.rating,
+                background_image: apiInfo.data.background_image,
+                platform: platforms,
+                gender: genres
+            }
+            Object.keys(detailById).length === 0 ?
+                res.status(404).send("Not Found Game"):
+                res.status(200).send(detailById)
         }catch (e) {
             console.error(e)
         }

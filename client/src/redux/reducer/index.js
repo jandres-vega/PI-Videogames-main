@@ -1,7 +1,8 @@
 const initialState = {
     allGame: [],
     allGenres: [],
-    allCopyGames: []
+    allCopyGames: [],
+    game: []
 }
 function rootReducer(state = initialState, action) {
 
@@ -73,7 +74,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allGame: createdApiDb
             }
-
+        case 'GET_GAME_ID':
+            return {
+                ...state,
+                game: action.payload
+            }
         default:
             return state;
     }
