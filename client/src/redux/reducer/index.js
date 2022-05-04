@@ -1,3 +1,5 @@
+import {act} from "react-dom/test-utils";
+
 const initialState = {
     allGame: [],
     allGenres: [],
@@ -78,6 +80,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 game: action.payload
+            }
+        case 'GET_BY_NAME':
+            return {
+                ...state,
+                allGame: action.payload
             }
         default:
             return state;

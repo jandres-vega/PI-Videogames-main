@@ -57,3 +57,13 @@ export function getGameById(id) {
         })
     }
 }
+export function getGameSearch(name) {
+    console.log(name)
+    return async function(dispatch) {
+        let gameByName = await axios.get(`http://localhost:3006/videogames?name=${name}`)
+        return dispatch({
+            type: 'GET_BY_NAME',
+            payload: gameByName.data
+        })
+    }
+}

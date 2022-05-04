@@ -9,7 +9,7 @@ const DetailGame = () => {
     const dispatch = useDispatch()
     const param = useParams()
     const gameDetail = useSelector(state => state.game)
-
+    let cont = 0;
     useEffect(() => {
         dispatch(getGameById(param.id))
     },[dispatch])
@@ -25,7 +25,7 @@ const DetailGame = () => {
                         <p id="p-genres">GENRES</p>
                         <ul>
                             {gameDetail.gender ?.map((data) => (
-                                <li>{data}</li>
+                                <li key={cont++}>{data}</li>
                             ))}
                         </ul>
                     </div>
@@ -33,7 +33,7 @@ const DetailGame = () => {
                         <p>PLATFORMS</p>
                         <ul>
                             {gameDetail.platform ?.map((data) => (
-                                <li>{data}</li>
+                                <li key={cont++}>{data}</li>
                             ))}
                         </ul>
                     </div>
@@ -45,6 +45,10 @@ const DetailGame = () => {
                         <Link to="/home">
                             <button>VOLVER</button>
                         </Link>
+                    </div>
+                    <div className="div-puntuation">
+                        <h5>PUNCTUATION: </h5>
+                        <p>{gameDetail.rating}</p>
                     </div>
 
                 </div>

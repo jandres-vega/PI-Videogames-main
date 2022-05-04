@@ -8,13 +8,14 @@
 }
 .div-detail {
     border-radius: 10px;
-    background-color: gray;
+    background-color: black;
     position : relative;
     margin: 0 auto;
     height: 670px;
     width: 800px;
     box-shadow: 5px 2px 5px greenyellow;
     text-overflow: ellipsis;
+    right: 15px;
 
 }
 .div-detail h1{
@@ -49,7 +50,9 @@
 }
 .div-genres-p {
     position: relative;
-    background-color: red;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 5px 2px 5px red;
     display: inline-block;
     width: 100px;
     left: -120px;
@@ -58,10 +61,13 @@
 }
 .div-genres-p p {
     margin: 0;
+    color: greenyellow;
+    font-family: cursive;
 }
 .div-genres-p li {
     position: relative;
     left: -20px;
+    color: #f2f2f2;
 }
 .div-genres-p ul {
     margin: 0;
@@ -69,14 +75,18 @@
 .div-platform {
     position: relative;
     width: 200px;
-    background-color: #ffeb3b;
     display: inline-block;
     left: 570px;
     top: -225px;
     vertical-align:top;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 5px 2px 5px red;
 }
 .div-platform p {
+    font-family: cursive;
     margin: 0;
+    color: greenyellow;
 }
 .div-platform ul {
     margin: 0;
@@ -84,6 +94,7 @@
 .div-platform li {
     position: relative;
     left: -20px;
+    color: #f2f2f2;
 }
 .div-botton-back {
     position: relative;
@@ -103,4 +114,20 @@
 .div-botton-back button:hover {
     background: greenyellow;
     color: black ;
+}
+.div-puntuation {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    top: 330px;
+}
+.div-puntuation h5 {
+    display: inline-block;
+    margin-right: 5px;
+    color: red;
+}
+.div-puntuation p {
+    color: #ffeb3b;
+    margin: 0;
+    display: inline-block;
 }

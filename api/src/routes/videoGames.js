@@ -33,6 +33,7 @@ router.get('/:id', async(req, res) => {
             const genres = apiInfo.data.genres.map( data => data.name)
             const platforms =  apiInfo.data.platforms.map( data => data.platform.name)
             const detailById = {
+                id: apiInfo.data.id,
                 name: apiInfo.data.name,
                 description: apiInfo.data.description.replace(/<[^>]+>/g, ''),
                 release_date: apiInfo.data.released,
