@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Videogame, Genre} = require('../db')
+const { Videogame, Genre, Platform} = require('../db')
 
 
 const getInfoApi = async () => {
@@ -33,14 +33,26 @@ const getInfoApi = async () => {
 
 const getInfoDb = async () => {
     return await Videogame.findAll({
-        include: {
+        include: [{
             model: Genre,
             attributes: ['name'],
             through: {
                 attributes: []
             }
-        }
+            }, {
+            model: Platform,
+            attributes: ['name'],
+            through: {
+                attributes: []
+            }
+        }]
     })
+}
+const getInfoApiDb = async () => {
+
+    const getApiInfo = await getInfoApi()
+    const getDb = await getInfoDb()
+    return getApiInfo.concat(getDb)
 }
 
 const getGenreApi = async  () => {
@@ -48,9 +60,21 @@ const getGenreApi = async  () => {
     const generos = getGenreApi.data.results.map(data => data.name);
     return generos
 }
+const getPlatform = async () => {
 
-
+    const allInfo = await getInfoApi()
+    const platforms = allInfo.map(data => {
+        let array = []
+        for (let i = 0; i <data.platform.length; i++) {
+            return data.platform[i]
+        }
+    })
+    const filterPlatforms = platforms.filter(function(ele , pos){
+        return platforms.indexOf(ele)=== pos;
+    })
+    return filterPlatforms
+}
 module.exports = {
-    getInfoApi, getGenreApi,getInfoDb
+    getInfoApi, getGenreApi,getInfoDb, getInfoApiDb, getPlatform
 }
 

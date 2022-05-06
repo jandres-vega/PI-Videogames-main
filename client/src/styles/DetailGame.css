@@ -35,8 +35,11 @@
     top: -230px;
 }
 .div-description {
-    width: 750px;
+    position: absolute;
+    width: 740px;
     left: 10px;
+    top: 250px;
+    display: inline-block;
 }
 .div-description p {
     color: #f2f2f2;

@@ -30,14 +30,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    platform: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    // platform: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
     createDateBase: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

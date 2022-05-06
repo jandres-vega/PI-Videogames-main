@@ -1,41 +1,114 @@
 import React from 'react';
+import {useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux'
+import {useForm} from '../hooks/useForm'
+import {getPlatforms, getAllGenres} from '../redux/actions/actions'
 import { Link } from 'react-router-dom';
 import '../styles/Form.css';
-import FilterGenre from '../components/FilterGenre';
+
+
+const initialForm = {
+  name:'',
+  release_date:'',
+  background_image:'',
+  rating:'',
+  description:'',
+  genres:[],
+  platforms:[]
+}
+
+// const validationForm = (form) => {
+//   let errors = {}
+//   if (!form.name.trim()){errors.name = "the name of game is required"}
+//   if (!form.release_date.trim()){errors.release_date = "the release date of game is required"}
+//   if (!form.image.trim()){errors.image = "the image of game is required"}
+//   if (!form.rating.trim()){errors.rating = "the rating of game is required"}
+//   if (!form.description.trim()){errors.description = "the description of game is required"}
+//   return  errors;
+// }
+
 const Form = () => {
+  let cont=0
+  const dispatch = useDispatch();
+  const allGenres = useSelector((state) => state.allGenres);
+  const allPlatforms = useSelector(state => state.platforms)
+
+  const {form,
+    errors,
+    handleSelectGenres,
+    handleSelectPlatforms,
+    handleChange,
+    handleSubmit}= useForm(initialForm)
+
+  useEffect(() => {
+    dispatch(getPlatforms())
+    dispatch(getAllGenres())
+  },[])
+  console.log(form)
+
+
   return (
     <div className="div-fondo-form">
       <div className="container-form">
         <form className="form">
           <div className="div-name">
             <label htmlFor="name">Name: </label>
-            <input type="text" placeholder="Name Game" id="input" />
+            <input type="text"
+                   placeholder="Name Game"
+                   name="name"
+                   id="input"
+                   value={form.name}
+                   onChange={(e) =>handleChange(e)}/>
           </div>
           <div className="div-release">
             <label htmlFor="name">Release Date: </label>
-            <input type="text" placeholder="Release Date" id="input" />
+            <input type="text"
+                   placeholder="Release Date"
+                   name="release_date"
+                   id="input"
+                   value={form.release_date}
+                   onChange={(e) =>handleChange(e)}/>
           </div>
           <div className="div-imagen">
             <label htmlFor="name">Imagen: </label>
-            <input type="text" placeholder="url imagen" id="input" />
+            <input type="text"
+                   placeholder="url imagen"
+                   name="background_image"
+                   id="input"
+                   value={form.background_image}
+                   onChange={(e) =>handleChange(e)}/>
           </div>
           <div className="div-rating">
-            <label htmlFor="name">Rating: </label>
-            <input type="text" placeholder="Rating" id="input" />
+            <label htmlFor="name" >Rating: </label>
+            <input type="text"
+                   placeholder="Rating"
+                   name="rating"
+                   id="input"
+                   value={form.rating}
+                   onChange={(e) =>handleChange(e)}/>
           </div>
-          <div className="div-description">
-            <label htmlFor="name">Description: </label>
-            <textarea name="textarea" rows="5" cols="50" />
+          <div className="div-desc">
+            <label htmlFor="name" id="des">Description: </label>
+            <textarea name="description"
+                      rows="5"
+                      cols="50"
+                      value={form.description}
+                      onChange={(e) =>handleChange(e)}/>
           </div>
           <div className="div-genre">
-            <FilterGenre />
+            <label>Genres: </label>
+            <select onChange={(e) => handleSelectGenres(e)}>
+              {allGenres?.map(data => (
+                  <option key={data.id}>{data.name}</option>
+              ))}
+            </select>
           </div>
           <div className="div-platforms">
             <label>Platforms: </label>
-            <select>
-              <option>Opcion 1</option>
-              <option>Opcion 2</option>
-              <option>Opcion 3</option>{' '}
+            <select onChange={(e) => handleSelectPlatforms(e)}>
+              {allPlatforms?.map(data => (
+                  <option key={cont++}>{data.name}</option>
+              ))}
             </select>
           </div>
           <div className="div-back-home">
@@ -44,7 +117,7 @@ const Form = () => {
             </Link>
           </div>
           <div className="div-save">
-            <button>Save</button>
+            <button onClick={(e) => handleSubmit(e)}>Send</button>
           </div>
         </form>
       </div>

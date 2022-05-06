@@ -1,10 +1,10 @@
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
   allGame: [],
   allGenres: [],
   allCopyGames: [],
   game: [],
+  platforms: []
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -81,6 +81,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         allGame: action.payload,
       };
+    case 'POST_GAME':
+      return {
+        ...state
+      }
+    case 'GET_PLATFORM':
+      return {
+        ...state,
+        platforms: action.payload
+      }
     default:
       return state;
   }

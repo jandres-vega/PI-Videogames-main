@@ -19,14 +19,20 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const { getGenreApi } = require('./src/services/informatioApiDb')
-const { Genre } = require('./src/db')
+const { getGenreApi, getPlatform } = require('./src/services/informatioApiDb')
+const { Genre, Platform} = require('./src/db')
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
 
   const genreApi = await getGenreApi()
   genreApi.forEach(data => {
     Genre.findOrCreate({
+      where: {name: data}
+    })
+  })
+  const platformApi = await getPlatform()
+  platformApi.forEach(data => {
+    Platform.findOrCreate({
       where: {name: data}
     })
   })
