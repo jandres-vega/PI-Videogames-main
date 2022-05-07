@@ -32,7 +32,9 @@ const getInfoApi = async () => {
 
 
 const getInfoDb = async () => {
-    return await Videogame.findAll({
+    // let arrayVideoGamesDb = []
+    var videgamesDb = []
+    videgamesDb = await Videogame.findAll({
         include: [{
             model: Genre,
             attributes: ['name'],
@@ -47,6 +49,21 @@ const getInfoDb = async () => {
             }
         }]
     })
+    videgamesDb = videgamesDb.map(p => {
+        return {
+                    id: p.id,
+                    name: p.name,
+                    released: p.released,
+                    rating: p.rating,
+                    description: p.description,
+                    background_image: p.background_image,
+                    genres: p.genres.map(data => data.name),
+                    platform: p.platforms.map(data => data.name),
+                    createDateBase: p.createDateBase
+                }
+
+    })
+    return videgamesDb
 }
 const getInfoApiDb = async () => {
 
@@ -64,15 +81,13 @@ const getPlatform = async () => {
 
     const allInfo = await getInfoApi()
     const platforms = allInfo.map(data => {
-        let array = []
         for (let i = 0; i <data.platform.length; i++) {
             return data.platform[i]
         }
     })
-    const filterPlatforms = platforms.filter(function(ele , pos){
-        return platforms.indexOf(ele)=== pos;
+    return platforms.filter(function (ele, pos) {
+        return platforms.indexOf(ele) === pos;
     })
-    return filterPlatforms
 }
 module.exports = {
     getInfoApi, getGenreApi,getInfoDb, getInfoApiDb, getPlatform

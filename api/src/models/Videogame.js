@@ -18,27 +18,22 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    release_date: {
+    released: {
       type: DataTypes.STRING,
       allowNull: false
     },
     rating: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.STRING,
       allowNull: false
     },
     background_image: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // platform: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
     createDateBase: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
     }
-
   });
 };

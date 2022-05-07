@@ -29,29 +29,35 @@ router.get('/:id', async(req, res) => {
     if (id.length < 10) {
         try {
             const numId = parseInt(id);
+            let arrayApi = []
             const apiInfo = await axios.get(`https://rawg.io/api/games/${numId}?key=6c10878e4c02424886c485451fb037de`)
+            // const detailById = apiInfo.data.map(data => data.name)
+            // res.send(detailById)
             const genre = apiInfo.data.genres.map( data => data.name)
             const platform =  apiInfo.data.platforms.map( data => data.platform.name)
             const detailById = {
                 id: apiInfo.data.id,
                 name: apiInfo.data.name,
                 description: apiInfo.data.description.replace(/<[^>]+>/g, ''),
-                release_date: apiInfo.data.released,
+                released: apiInfo.data.released,
                 rating: apiInfo.data.rating,
                 background_image: apiInfo.data.background_image,
                 platform: platform,
                 gender: genre
             }
+            arrayApi.push(detailById)
             Object.keys(detailById).length === 0 ?
                 res.status(404).send("Not Found Game"):
-                res.status(200).send(detailById)
+                res.status(200).send( arrayApi)
         }catch (e) {
             console.error(e)
         }
     }else{
         try {
-            const dbInfo = await getInfoDb()
-            const dbFilter = dbInfo.filter(data => data.id === id)
+            const apiInfo = await getInfoDb()
+            const filterDb = apiInfo.filter(data => data.id === id)
+            res.send(filterDb)
+
         }catch (e) {
             console.error(e)
         }
@@ -62,7 +68,7 @@ router.post('/', async(req, res) => {
     const {
         name,
         description,
-        release_date,
+        released,
         rating,
         background_image,
         genres,
@@ -72,7 +78,7 @@ router.post('/', async(req, res) => {
         let createGame = await Videogame.create({
             name,
             description,
-            release_date,
+            released,
             rating,
             background_image,
         })

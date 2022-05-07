@@ -9,7 +9,7 @@ import '../styles/Form.css';
 
 const initialForm = {
   name:'',
-  release_date:'',
+  released:'',
   background_image:'',
   rating:'',
   description:'',
@@ -17,15 +17,15 @@ const initialForm = {
   platforms:[]
 }
 
-// const validationForm = (form) => {
-//   let errors = {}
-//   if (!form.name.trim()){errors.name = "the name of game is required"}
-//   if (!form.release_date.trim()){errors.release_date = "the release date of game is required"}
-//   if (!form.image.trim()){errors.image = "the image of game is required"}
-//   if (!form.rating.trim()){errors.rating = "the rating of game is required"}
-//   if (!form.description.trim()){errors.description = "the description of game is required"}
-//   return  errors;
-// }
+const validationForm = (form) => {
+  let errors = {}
+  if (!form.name){errors.name = "the name of game is required"}
+  if (!form.released){errors.released = "the release date of game is required"}
+  if (!form.background_image){errors.background_image = "the image of game is required"}
+  if (!form.rating){errors.rating = "the rating of game is required"}
+  if (!form.description){errors.description = "the description of game is required"}
+  return  errors;
+}
 
 const Form = () => {
   let cont=0
@@ -38,14 +38,14 @@ const Form = () => {
     handleSelectGenres,
     handleSelectPlatforms,
     handleChange,
-    handleSubmit}= useForm(initialForm)
+    handleSubmit}= useForm(initialForm, validationForm)
 
   useEffect(() => {
     dispatch(getPlatforms())
     dispatch(getAllGenres())
   },[])
-  console.log(form)
 
+  console.log(errors.name)
 
   return (
     <div className="div-fondo-form">
@@ -60,15 +60,17 @@ const Form = () => {
                    value={form.name}
                    onChange={(e) =>handleChange(e)}/>
           </div>
+          <div className="errors">{errors.name && <p id="err"> {errors.name} </p>}</div>
           <div className="div-release">
             <label htmlFor="name">Release Date: </label>
             <input type="text"
                    placeholder="Release Date"
-                   name="release_date"
+                   name="released"
                    id="input"
-                   value={form.release_date}
+                   value={form.released}
                    onChange={(e) =>handleChange(e)}/>
           </div>
+          <div className="errors">{errors.released && <p id="err"> {errors.released} </p>}</div>
           <div className="div-imagen">
             <label htmlFor="name">Imagen: </label>
             <input type="text"
@@ -78,6 +80,7 @@ const Form = () => {
                    value={form.background_image}
                    onChange={(e) =>handleChange(e)}/>
           </div>
+          <div className="errors">{errors.background_image && <p id="err"> {errors.background_image} </p>}</div>
           <div className="div-rating">
             <label htmlFor="name" >Rating: </label>
             <input type="text"
@@ -87,6 +90,7 @@ const Form = () => {
                    value={form.rating}
                    onChange={(e) =>handleChange(e)}/>
           </div>
+          <div className="errors">{errors.rating && <p id="err"> {errors.rating} </p>}</div>
           <div className="div-desc">
             <label htmlFor="name" id="des">Description: </label>
             <textarea name="description"
@@ -95,6 +99,7 @@ const Form = () => {
                       value={form.description}
                       onChange={(e) =>handleChange(e)}/>
           </div>
+          <div className="errors-des">{errors.description && <p id="err"> {errors.description} </p>}</div>
           <div className="div-genre">
             <label>Genres: </label>
             <select onChange={(e) => handleSelectGenres(e)}>
@@ -111,13 +116,15 @@ const Form = () => {
               ))}
             </select>
           </div>
-          <div className="div-back-home">
-            <Link to="/home">
-              <button>Back</button>
-            </Link>
-          </div>
-          <div className="div-save">
-            <button onClick={(e) => handleSubmit(e)}>Send</button>
+          <div className="div-btn-back-send ">
+            <div className="div-back-home">
+              <Link to="/home">
+                <button>Back</button>
+              </Link>
+            </div>
+            <div className="div-save">
+              <button onClick={(e) => handleSubmit(e)}>Send</button>
+            </div>
           </div>
         </form>
       </div>

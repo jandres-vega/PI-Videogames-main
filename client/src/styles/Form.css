@@ -11,7 +11,7 @@
     width: 650px;
     height: 650px;
     position: relative;
-    top: 170px;
+    top: 120px;
     margin: 0 auto;
 }
 .form {
@@ -141,8 +141,8 @@
 
 .div-genre {
     position: absolute;
-    left: 20px;
-    top: 390px;
+    left: 100px;
+    top: 360px;
     display: inline-block;
 }
 .div-genre label {
@@ -157,8 +157,8 @@
 }
 .div-platforms {
     position: absolute;
-    left: 210px;
-    top: 390px;
+    left: 390px;
+    top: 360px;
     display: inline-block;
 }
 .div-platforms label {
@@ -174,8 +174,7 @@
 .div-save {
     position: relative;
     display: inline-block;
-    top: 390px;
-    left: 210px;
+    left: -80px;
 }
 .div-save button {
     height: 40px;
@@ -194,7 +193,6 @@
 .div-back-home {
     position: relative;
     display: inline-block;
-    top: 390px;
     left: 200px;
 }
 .div-back-home button {
@@ -211,3 +209,30 @@
     background: greenyellow;
     color: black ;
 }
+.div-btn-back-send {
+    position: absolute;
+    top: 440px;
+    left: 190px;
+    display: inline-block;
+}
+.errors {
+    width: 230px;
+    position: relative;
+    text-align: left;
+    margin: 45px;
+    height: 15px;
+    left: 220px;
+    top: 40px;
+}
+.errors-des {
+    width: 260px;
+    text-align: left;
+    left: 260px;
+    position: relative;
+    top: 92px;
+}
+#err {
+    margin: 0;
+    color: red;
+}
+
