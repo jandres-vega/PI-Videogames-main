@@ -13,7 +13,7 @@ const DetailGame = () => {
   let cont = 0;
   useEffect(() => {
     dispatch(getGameById(param.id));
-  }, [dispatch]);
+  }, []);
 
   return (
     <div>
@@ -26,7 +26,7 @@ const DetailGame = () => {
               <div className="div-genres-p">
                 <p id="p-genres">GENRES</p>
                 <ul>
-                  {data.gender?.map((data) => (
+                  {data.genres?.map((data) => (
                       <li key={cont++}>{data}</li>
                   ))}
                 </ul>

@@ -1,0 +1,19 @@
+.div-all {
+    display: inline-block;
+    position: absolute;
+    left: 100px;
+}
+.div-all button {
+    height: 40px;
+    width: 150px;
+    font-family: cursive;
+    font-size: 20px;
+    border: 5px solid #111111;
+    border-radius: 15px;
+    color:green;
+    cursor: pointer;
+}
+.div-all button:hover {
+    background: greenyellow;
+    color: black ;
+}

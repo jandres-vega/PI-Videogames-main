@@ -1,20 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllGames, orderByName } from '../redux/actions/actions';
+import {orderByName, getAllGames} from '../redux/actions/actions';
 import CardGame from '../components/CardGame';
 import Paginado from '../components/Paginado';
 import '../styles/ListGame.css';
 const ListGame = () => {
   const dispatch = useDispatch();
-  const allGames = useSelector((state) => state.allGame);
+  const allGames = useSelector(state => state.allGame);
   const [order, setOrder] = useState('');
   const [currenPage, setCurrenPage] = useState(1);
   const [gameByPage, setGameByPage] = useState(15);
   const indexLastGame = currenPage * gameByPage;
   const indexPrimarGame = indexLastGame - gameByPage;
   const currenGames = allGames.slice(indexPrimarGame, indexLastGame);
+
+    useEffect(() => {
+        dispatch(getAllGames())
+    },[dispatch])
 
   function handleOrder(e) {
     e.preventDefault();

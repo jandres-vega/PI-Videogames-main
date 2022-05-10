@@ -6,7 +6,7 @@ const Paginado = ({ gameByPage, allGames, paginado }) => {
     pagNumber.push(i);
   }
   return (
-    <footer className="pag-nav">
+    <div className="pag-nav">
       <ul className="paginado">
         {pagNumber &&
           pagNumber.map((number) => (
@@ -17,7 +17,7 @@ const Paginado = ({ gameByPage, allGames, paginado }) => {
             </li>
           ))}
       </ul>
-    </footer>
+    </div>
   );
 };
 

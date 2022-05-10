@@ -45,8 +45,6 @@ const Form = () => {
     dispatch(getAllGenres())
   },[])
 
-  console.log(errors.name)
-
   return (
     <div className="div-fondo-form">
       <div className="container-form">

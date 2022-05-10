@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export function getAllGames() {
   return async function (dispatch) {
-    let allGames = await axios.get('http://localhost:3006/videogames');
+    let json = await axios.get('http://localhost:3006/videogames');
     return dispatch({
       type: 'GET_GAMES',
-      payload: allGames.data,
+      payload: json.data,
     });
   };
 }
@@ -27,12 +27,6 @@ export function filterByGenres(value) {
 export function filterByGame(value) {
   return {
     type: 'FILTER_GAMES',
-    value,
-  };
-}
-export function filterByRating(value) {
-  return {
-    type: 'FILTER_RATING',
     value,
   };
 }

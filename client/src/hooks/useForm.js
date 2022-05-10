@@ -35,8 +35,8 @@ export const useForm = (initialForm, validation) => {
             alert("game created")
             setForm({
                 name:'',
-                release_date:'',
-                imagen:'',
+                released:'',
+                background_image:'',
                 rating:'',
                 description:'',
                 genres:[],

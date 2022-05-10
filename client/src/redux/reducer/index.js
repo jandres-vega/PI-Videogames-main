@@ -37,14 +37,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         allGame: arrayGames,
       };
-    case 'FILTER_RATING':
-      let arrayRatings = state.allCopyGames.filter((data) => {
-        return data.rating === Number(action.value);
-      });
-      return {
-        ...state,
-        allGame: arrayRatings,
-      };
     case 'ORDER':
       const order =
         action.value === 'asen'

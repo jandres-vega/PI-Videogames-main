@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import imagenTitulo from '../assets/imagenes/videoGame.png';
 import FilterGenre from '../components/FilterGenre';
 import FilterByGame from '../components/FilterByGame';
-import OrderRating from '../components/OrderRating';
+import OrderRating from '../components/buttonAllGames';
 import CreateApiDb from '../components/CreateApiDb';
 import SearchGames from '../components/SearchGames';
+import ButtonAllGames from "../components/buttonAllGames";
 const Header = () => {
   return (
     <div>
@@ -29,9 +30,9 @@ const Header = () => {
         <h3>FILTRAR POR: </h3>
       </div>
       <div className="div-Filter-genero">
+          <ButtonAllGames/>
         <FilterGenre />
         <FilterByGame />
-        <OrderRating />
         <CreateApiDb />
       </div>
       <div className="div-search-header">

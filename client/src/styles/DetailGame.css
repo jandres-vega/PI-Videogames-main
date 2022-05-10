@@ -33,6 +33,7 @@
     left:200px;
     display: inline-block;
     top: -230px;
+    color: red;
 }
 .div-description {
     position: absolute;
@@ -59,8 +60,10 @@
     display: inline-block;
     width: 100px;
     left: -120px;
+    top: -10px;
     text-align: center;
     vertical-align:top;
+    margin: 10px;
 }
 .div-genres-p p {
     margin: 0;

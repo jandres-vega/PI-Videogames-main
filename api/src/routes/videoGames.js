@@ -43,7 +43,7 @@ router.get('/:id', async(req, res) => {
                 rating: apiInfo.data.rating,
                 background_image: apiInfo.data.background_image,
                 platform: platform,
-                gender: genre
+                genres: genre
             }
             arrayApi.push(detailById)
             Object.keys(detailById).length === 0 ?
