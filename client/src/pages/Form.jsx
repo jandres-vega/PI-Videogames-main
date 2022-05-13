@@ -19,11 +19,27 @@ const initialForm = {
 
 const validationForm = (form) => {
   let errors = {}
-  if (!form.name){errors.name = "the name of game is required"}
-  if (!form.released){errors.released = "the release date of game is required"}
+  const ruleReleased = /^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}$/
+  // const ruleRating = /^(?:[1-9]\d{0,2}(?:,\d{3})*|0)(?:\.\d+)?$/
+  const ruleRating = /^[0.0-5]*(\.?)[0.0-5]+$/
+  if (!form.name){
+    errors.name = "the name of game is required"
+  }
+  if (!form.released){
+    errors.released = "the release date of game is required"
+  }else if (!ruleReleased.test(form.released)){
+    errors.released = "the format date is (AAAA/MM/DD)"
+  }
+
   if (!form.background_image){errors.background_image = "the image of game is required"}
-  if (!form.rating){errors.rating = "the rating of game is required"}
+  if (!form.rating){
+    errors.rating = "the rating of game is required"
+  }else if(!form.rating || form.rating > 5 || form.rating < 0) {
+    errors.rating = "the rating is of (0 - 5)"
+  }
   if (!form.description){errors.description = "the description of game is required"}
+  if (form.genres.length === 0){{errors.genres= "you have to enter a gender"}}
+  if (form.platforms.length === 0){{errors.platforms= "you have to enter a platforms"}}
   return  errors;
 }
 
@@ -97,7 +113,7 @@ const Form = () => {
                       value={form.description}
                       onChange={(e) =>handleChange(e)}/>
           </div>
-          <div className="errors-des">{errors.description && <p id="err"> {errors.description} </p>}</div>
+          <div className="-des">{errors.description && <p> {errors.description} </p>}</div>
           <div className="div-genre">
             <label>Genres: </label>
             <select onChange={(e) => handleSelectGenres(e)}>
@@ -106,14 +122,16 @@ const Form = () => {
               ))}
             </select>
           </div>
+          <div className="errorsG">{errors.genres && <p id="errG">{errors.genres}</p>}</div>
           <div className="div-platforms">
             <label>Platforms: </label>
-            <select onChange={(e) => handleSelectPlatforms(e)}>
+            <select  onChange={(e) => handleSelectPlatforms(e)}>
               {allPlatforms?.map(data => (
-                  <option key={cont++}>{data.name}</option>
+                  <option key={cont++} value={data.name} >{data.name}</option>
               ))}
             </select>
           </div>
+          <div className="errorsP">{errors.platforms && <p id="errP"> {errors.platforms} </p>}</div>
           <div className="div-btn-back-send ">
             <div className="div-back-home">
               <Link to="/home">

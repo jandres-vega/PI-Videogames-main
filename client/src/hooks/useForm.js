@@ -16,16 +16,24 @@ export const useForm = (initialForm, validation) => {
         setErrors(validation(form))
     }
     const handleSelectGenres = (e) => {
-        setForm({
-            ...form,
-            genres: [...form.genres, e.target.value]
-        })
+        if (form.genres.includes(e.target.value)) {
+            alert("no pueden repetir generos")
+        }else {
+            setForm({
+                ...form,
+                genres: [...form.genres, e.target.value]
+            })
+        }
     }
     const handleSelectPlatforms = (e) => {
-        setForm({
-            ...form,
-            platforms: [...form.platforms, e.target.value]
-        })
+        if(form.platforms.includes(e.target.value)) {
+            alert("no pueden repetir platforms")
+        }else {
+            setForm({
+                ...form,
+                platforms: [...form.platforms, e.target.value]
+            })
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault()

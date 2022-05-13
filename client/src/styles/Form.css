@@ -216,7 +216,7 @@
     display: inline-block;
 }
 .errors {
-    width: 230px;
+    width: 260px;
     position: relative;
     text-align: left;
     margin: 45px;
@@ -224,14 +224,40 @@
     left: 220px;
     top: 40px;
 }
-.errors-des {
+.-des {
     width: 260px;
-    text-align: left;
-    left: 260px;
+    left: 220px;
     position: relative;
     top: 92px;
+    display: inline-block;
+}
+.-des p {
+    color: red;
+    margin: 0;
 }
 #err {
+    color: red;
+    margin: 0;
+}
+.errorsG {
+    position: relative;
+    display: inline-block;
+    right: 180px;
+    top: 155px;
+    vertical-align:top;
+}
+.errorsG p {
+    color: red;
+    margin: 0;
+}
+.errorsP {
+    position: relative;
+    display: inline-block;
+    top: 155px;
+    right: 60px;
+    vertical-align:top;
+}
+.errorsP p {
     margin: 0;
     color: red;
 }

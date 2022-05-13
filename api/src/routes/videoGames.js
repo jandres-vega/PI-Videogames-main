@@ -1,8 +1,11 @@
+require('dotenv').config();
 const {Router} = require('express')
 const router = Router()
 const {getInfoApi, getInfoDb, getInfoApiDb} = require('../services/informatioApiDb')
 const { Videogame, Genre, Platform} = require('../db')
 const axios = require("axios");
+
+const {API_KEY} = process.env
 
 router.get('/', async(req, res) => {
     const name = req.query.name
@@ -30,7 +33,7 @@ router.get('/:id', async(req, res) => {
         try {
             const numId = parseInt(id);
             let arrayApi = []
-            const apiInfo = await axios.get(`https://rawg.io/api/games/${numId}?key=6c10878e4c02424886c485451fb037de`)
+            const apiInfo = await axios.get(`https://rawg.io/api/games/${numId}?key=${API_KEY}`)
             // const detailById = apiInfo.data.map(data => data.name)
             // res.send(detailById)
             const genre = apiInfo.data.genres.map( data => data.name)

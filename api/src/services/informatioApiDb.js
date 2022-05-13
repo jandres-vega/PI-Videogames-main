@@ -1,7 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
 const { Videogame, Genre, Platform} = require('../db')
-//6c10878e4c02424886c485451fb037de
 const {API_KEY} = process.env
 
 const getInfoApi = async () => {
