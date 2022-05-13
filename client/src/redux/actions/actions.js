@@ -64,18 +64,15 @@ export function getGameSearch(name) {
 }
 export function createGame(payload) {
   return async function () {
-    return await axios.post('http://localhost:3006/videogame', payload)
-
-  }
+    return await axios.post('http://localhost:3006/videogame', payload);
+  };
 }
-export function getPlatforms(){
+export function getPlatforms() {
   return async function (dispatch) {
-    let allPlatforms = await axios.get('http://localhost:3006/platforms')
+    let allPlatforms = await axios.get('http://localhost:3006/platforms');
     return dispatch({
       type: 'GET_PLATFORM',
-      payload: allPlatforms.data
-    })
-
-  }
-
+      payload: allPlatforms.data,
+    });
+  };
 }

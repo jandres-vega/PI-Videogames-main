@@ -1,10 +1,9 @@
-
 const initialState = {
   allGame: [],
   allGenres: [],
   allCopyGames: [],
   game: [],
-  platforms: []
+  platforms: [],
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -75,13 +74,13 @@ function rootReducer(state = initialState, action) {
       };
     case 'POST_GAME':
       return {
-        ...state
-      }
+        ...state,
+      };
     case 'GET_PLATFORM':
       return {
         ...state,
-        platforms: action.payload
-      }
+        platforms: action.payload,
+      };
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { getAllGames, filterByGame } from '../redux/actions/actions';
 import '../styles/FilterByGame.css';
 const FilterByGame = () => {
   const dispatch = useDispatch();
-  const nameGames = useSelector(state => state.allCopyGames);
+  const nameGames = useSelector((state) => state.allCopyGames);
 
   function handleFilterByGame(e) {
     dispatch(filterByGame(e.target.value));

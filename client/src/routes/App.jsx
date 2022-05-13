@@ -4,7 +4,7 @@ import LandingPage from '../pages/LandingPage';
 import Home from '../pages/Home';
 import Form from '../pages/Form';
 import DetailGame from '../containers/DetailGame';
-import NotFound from "../pages/NotFound";
+import NotFound from '../pages/NotFound';
 
 const App = () => {
   return (
