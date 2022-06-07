@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { orderByName, getAllGames } from '../redux/actions/actions';
+import { orderByName, getAllGames, orderByRating } from '../redux/actions/actions';
 import CardGame from '../components/CardGame';
 import Paginado from '../components/Paginado';
 import '../styles/ListGame.css';
@@ -20,11 +20,17 @@ const ListGame = () => {
     dispatch(getAllGames());
   }, [dispatch]);
 
-  function handleOrder(e) {
-    e.preventDefault();
-    dispatch(orderByName(e.target.value));
-    setOrder(`Ordenado ${e.target.value}`);
+  function handleOrderRating(e) {
+      e.preventDefault();
+      dispatch(orderByRating(e.target.value))
+      setOrder(`Ordenado ${e.target.value}`);
   }
+
+  // function handleOrder(e) {
+  //   e.preventDefault();
+  //   dispatch(orderByName(e.target.value));
+  //   setOrder(`Ordenado ${e.target.value}`);
+  // }
 
   const paginado = (pageNumber) => {
     setCurrenPage(pageNumber);

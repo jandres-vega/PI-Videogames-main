@@ -53,6 +53,19 @@ function rootReducer(state = initialState, action) {
         ...state,
         allGame: order,
       };
+    case 'ORDER_BY_RATING'  :
+      const orderRating = action.value === 'min-max' ?
+          state.allGame.sort(function (a,b) {
+            return a.rating - b.rating;
+          }):
+          state.allGame.sort(function (a,b) {
+            return b.rating - a.rating;
+          })
+
+      return {
+        ...state,
+        allGame: orderRating
+      }
     case 'FILTER_CREATED_AT':
       const createdApiDb =
         action.value === 'database'

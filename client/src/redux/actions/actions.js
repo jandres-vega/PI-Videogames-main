@@ -36,6 +36,12 @@ export function orderByName(value) {
     value,
   };
 }
+export function orderByRating(value){
+  return {
+    type: 'ORDER_BY_RATING',
+    value
+  }
+}
 export function filterByCreatedAt(value) {
   return {
     type: 'FILTER_CREATED_AT',

@@ -1,10 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { getGameSearch } from '../redux/actions/actions';
 import '../styles/SearchGames.css';
 const SearchGames = () => {
   const [game, setGame] = useState('');
+
+  const allGames = useSelector(state => state.allGame)
   const dispatch = useDispatch();
   function handleInputSearch(e) {
     e.preventDefault();
@@ -12,8 +14,14 @@ const SearchGames = () => {
   }
   function handleSubmitSearch(e) {
     e.preventDefault();
-    dispatch(getGameSearch(game));
-    setGame('');
+    if (game === '') {
+      alert("ingrese un nombre de juego")
+    }
+    if (game) {
+      dispatch(getGameSearch(game));
+      setGame('');
+    }
+
   }
 
   return (

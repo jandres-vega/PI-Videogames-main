@@ -9,7 +9,6 @@
     border-radius: 50px;
     padding: 0;
     flex-wrap: wrap;
-    top: -30px;
 }
 .div-paginado {
     background-color: #14ffe9;
@@ -33,4 +32,10 @@
 .div-order label {
     font-family: cursive;
     font-size: 20px;
+}
+.div-rating {
+    position: relative;
+    display: inline-block;
+    top: -200px;
+    left: 50px;
 }
